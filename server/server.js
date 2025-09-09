@@ -14,6 +14,7 @@ const port = process.env.PORT || 4000
 connectdb()
 
 const allowedOrigins = 'https://insightsync-67f8.onrender.com'
+app.set('trust proxy', 1)
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({origin:allowedOrigins,credentials:true}))
