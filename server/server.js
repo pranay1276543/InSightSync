@@ -15,9 +15,10 @@ connectdb()
 
 const allowedOrigins = 'https://insightsync-67f8.onrender.com'
 app.set('trust proxy', 1)
+app.use(cors({origin:allowedOrigins,credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin:allowedOrigins,credentials:true}))
+
 
 transporter.verify((error, success) => {
     if (error) {
