@@ -18,6 +18,9 @@ try {
   }
 } catch (err) {
  }
+// Log resolved upload directory for visibility in hosting logs
+// eslint-disable-next-line no-console
+console.log(`[multer] Using upload directory: ${resolvedUploadDir}`)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, resolvedUploadDir);
