@@ -6,7 +6,8 @@ export const AppContext = createContext();
 export const AppContextProvider = (props) => {
   axios.defaults.withCredentials = true;
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const rawBackendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = rawBackendUrl?.endsWith('/') ? rawBackendUrl : `${rawBackendUrl}/`;
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);
